@@ -5,7 +5,7 @@
 
 Summary:    A library to ease the development of network-based applications
 Name:       %{name}
-Version:    1.3.1
+Version:    1.3.5
 Release:    %mkrel 1
 URL:        http://gobby.0x539.de/
 License:    GPL
@@ -64,7 +64,7 @@ rm -Rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root,-)
-%doc ChangeLog README TODO NEWS AUTHORS 
+%doc ChangeLog README NEWS AUTHORS 
 %_libdir/*.so.*
 
 %files -n %libname_devel
