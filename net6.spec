@@ -13,6 +13,7 @@ Source0:    http://releases.0x539.de/%{name}/%{name}-%{version}.tar.bz2
 Group:      System/Libraries
 BuildRequires: sigc++2.0-devel
 BuildRequires: pkgconfig(gnutls)
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 %description 
 net6 is a library which eases the development of network-based applications
 as it provides a TCP protocol abstraction for C++. It is portable to both
