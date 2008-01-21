@@ -67,7 +67,7 @@ rm -Rf $RPM_BUILD_ROOT
 %files -n %libname
 %defattr(-,root,root,-)
 %doc ChangeLog README NEWS AUTHORS 
-%_libdir/*%{api}.so.%{major}
+%_libdir/*%{api}.so.%{major}*
 
 %files -n %libname_devel
 %defattr(-,root,root,-)
