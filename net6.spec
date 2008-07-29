@@ -7,7 +7,7 @@
 Summary:    A library to ease the development of network-based applications
 Name:       %{name}
 Version:    1.3.6
-Release:    %mkrel 1
+Release:    %mkrel 3
 URL:        http://gobby.0x539.de/
 License:    GPLv2+
 Source0:    http://releases.0x539.de/%{name}/%{name}-%{version}.tar.gz
