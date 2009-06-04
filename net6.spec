@@ -7,10 +7,11 @@
 Summary:    A library to ease the development of network-based applications
 Name:       %{name}
 Version:    1.3.9
-Release:    %mkrel 1
+Release:    %mkrel 2
 URL:        http://gobby.0x539.de/
 License:    GPLv2+
 Source0:    http://releases.0x539.de/%{name}/%{name}-%{version}.tar.gz
+Patch0:     net6-1.3.9-gnutls-2.8.patch
 Group:      System/Libraries
 BuildRequires: sigc++2.0-devel
 BuildRequires: pkgconfig(gnutls)
@@ -45,7 +46,8 @@ as it provides a TCP protocol abstraction for C++. It is portable to both
 the Windows and Unix-like platforms.
 
 %prep
-%setup -q 
+%setup -q
+%patch0 -p0
 
 %build
 %configure2_5x
