@@ -50,6 +50,7 @@ the Windows and Unix-like platforms.
 %patch0 -p0
 
 %build
+autoreconf -fi
 %configure2_5x
 %make
 
