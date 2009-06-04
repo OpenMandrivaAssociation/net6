@@ -14,8 +14,10 @@ Source0:    http://releases.0x539.de/%{name}/%{name}-%{version}.tar.gz
 Patch0:     net6-1.3.9-gnutls-2.8.patch
 Group:      System/Libraries
 BuildRequires: sigc++2.0-devel
-BuildRequires: pkgconfig(gnutls)
+BuildRequires: gnutls-devel
+BuildRequires: gettext-devel
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+
 %description 
 net6 is a library which eases the development of network-based applications
 as it provides a TCP protocol abstraction for C++. It is portable to both
