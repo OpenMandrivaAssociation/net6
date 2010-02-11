@@ -6,12 +6,11 @@
 
 Summary:    A library to ease the development of network-based applications
 Name:       %{name}
-Version:    1.3.9
-Release:    %mkrel 2
+Version:    1.3.12
+Release:    %mkrel 1
 URL:        http://gobby.0x539.de/
 License:    GPLv2+
 Source0:    http://releases.0x539.de/%{name}/%{name}-%{version}.tar.gz
-Patch0:     net6-1.3.9-gnutls-2.8.patch
 Group:      System/Libraries
 BuildRequires: sigc++2.0-devel
 BuildRequires: gnutls-devel
@@ -49,10 +48,8 @@ the Windows and Unix-like platforms.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
-autoreconf -fi
 %configure2_5x
 %make
 
