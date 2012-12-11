@@ -6,16 +6,15 @@
 
 Summary:    A library to ease the development of network-based applications
 Name:       %{name}
-Version:    1.3.12
-Release:    %mkrel 2
+Version:    1.3.14
+Release:    1
 URL:        http://gobby.0x539.de/
 License:    GPLv2+
 Source0:    http://releases.0x539.de/%{name}/%{name}-%{version}.tar.gz
 Group:      System/Libraries
-BuildRequires: sigc++2.0-devel
-BuildRequires: gnutls-devel
+BuildRequires: pkgconfig(sigc++-2.0)
+BuildRequires: pkgconfig(gnutls)
 BuildRequires: gettext-devel
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description 
 net6 is a library which eases the development of network-based applications
@@ -59,9 +58,6 @@ rm -Rf $RPM_BUILD_ROOT
 # remove translation, do not know where to place it 
 rm -Rf $RPM_BUILD_ROOT/%_datadir/ 
 
-%clean
-rm -Rf $RPM_BUILD_ROOT
-
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
 %endif
@@ -79,6 +75,67 @@ rm -Rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %_includedir/%name/
 %_libdir/*.so
-%_libdir/*.la
 %_libdir/*.a
 %_libdir/pkgconfig/*
+
+
+%changelog
+* Mon Dec 06 2010 Oden Eriksson <oeriksson@mandriva.com> 1.3.12-2mdv2011.0
++ Revision: 613011
+- the mass rebuild of 2010.1 packages
+
+* Thu Feb 11 2010 Michael Scherer <misc@mandriva.org> 1.3.12-1mdv2010.1
++ Revision: 504040
+- new version 1.3.12
+- remove patch0, applied upstream
+
+* Thu Jun 04 2009 Funda Wang <fwang@mandriva.org> 1.3.9-2mdv2010.0
++ Revision: 382609
+- BR gettext-devel
+- autoreconf
+- build with gnutls 2.8
+
+* Fri Mar 06 2009 Michael Scherer <misc@mandriva.org> 1.3.9-1mdv2009.1
++ Revision: 349848
+- update to 1.3.9
+
+* Tue Jul 29 2008 Thierry Vignaud <tv@mandriva.org> 1.3.6-3mdv2009.0
++ Revision: 253738
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Mon Jan 21 2008 Funda Wang <fwang@mandriva.org> 1.3.6-1mdv2008.1
++ Revision: 155565
+- New version 1.3.6
+
+* Mon Jan 21 2008 Funda Wang <fwang@mandriva.org> 1.3.5-2mdv2008.1
++ Revision: 155487
+- correct libname
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sat Aug 18 2007 Michael Scherer <misc@mandriva.org> 1.3.5-1mdv2008.0
++ Revision: 66425
+- fix buildrequires
+- new version 1.3.5
+- Import net6
+
+
+
+* Mon Sep 04 2006 Michael Scherer <misc@mandriva.org> 1.3.1-1mdv2007.0
+- New version 1.3.1
+
+* Thu Dec 15 2005 Michael Scherer <misc@mandriva.org> 1.2.2-1mdk
+- New release 1.2.2
+
+* Mon Nov 28 2005 Michael Scherer <misc@mandriva.org> 1.2.1-1mdk
+- New release 1.2.1, and new major
+
+* Fri Nov 04 2005 Michael Scherer <misc@mandriva.org> 1.1.0-1mdk
+- first package 
